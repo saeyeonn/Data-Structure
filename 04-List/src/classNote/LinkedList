@@ -1,0 +1,53 @@
+[ Linked List ]
+
+* Analogy   :   Network of Emergency Contacts
+
+
+    1) Node
+
+    - Nested class      :   defined in another class def
+        * nest class 와 밀접한 관계가 있거나 Logical grouping 되어 있을 때 사용
+
+    - Inner class       :   nested class (not static)
+        * Outer class Instance 에 종속적이며 Outer class member 에 직접 접근 가능
+
+    - Outer class       :   Enclosing class
+
+    - Top-level class   :   Outer class = X nest class
+
+
+
+    2) Way to find location with given index    : temp point
+
+    - counting with int variable  :   i
+    - pointing with current node  :   p
+
+
+
+    3) Removing Case
+
+    - Empty list     ->  return false
+    - index == 0     ->  rm 1st element && return true
+    - index > size   ->  return false
+    - other          ->  rm element in certain location && return true
+
+        * check data of p.next (not p)  :   null 여부
+
+
+
+    4) Design issue - Inner class vs. Package
+
+        :   need Getter & Setter if define Node outside of class
+
+
+    5) ArrayList vs. LinkedList
+
+        : More memory than ArrayList
+        : Resizable compare to ArrayList
+
+
+
+    6) Time Complexity  :   Arr == Linked
+
+        - add, rm, indexOf, size, toArray == O(n)
+        - clear == O(1)

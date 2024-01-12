@@ -1,0 +1,79 @@
+[ List ]
+
+:   set of names, nums, ... -> 서로 연관된 이름, 숫자 등을 하나씩 나열한 것
+:   can remember / check    -> 비슷한 속성 / 주제를 가진 항목 정리, 기록할 때 사용
+
+
+    1) Responsibilities
+
+        Boolean add (T newEntry);
+        Boolean add (int givenPosition, T newEntry);
+
+        Boolean remove (T anEntry);
+            T   remove (int givenPosition);
+
+        T get (int givenPosition);
+
+        int indexOf (T anEntry);
+
+        void clear();
+
+        int size();
+
+
+
+    2) Design Issue
+
+        - data field declaration ways     * ArrayList : 객체의 배열 -> 필드
+
+        - capacity
+
+           i. len of arr vs. num of elements       // new Instance(100);
+
+           ii. user defined vs. default            // new Instance();
+
+
+        - initializing arr of param T
+
+            @SuppressWarnings("unchecked")
+            T[] tempList = (T[]) new Object[desiredCapacity];
+            list = tempList;
+
+            * Suppressing compiler warnings
+              : method / variable 선언 앞에 놓여서 unchecked-cast warning 억제
+
+            i. Syntax Error     // list = new T[capacity];
+                                // list = new Object[capacity];
+
+            ii. Missing type Checking   // list = (T[]) new Object[capacity]
+
+
+
+    3) Fail-Safe programming
+
+        - clients tries to create List whose capacity exceeds given limit
+            -> List constructor / method 에서 용량 제한 확인
+            -> 용량 초과 시 throw Exception
+
+        - constructor doesn't execute completely
+            = 객체 초기화가 제대로 이뤄지지 않은 상황
+            = 객체가 유효한 상태로 생성 X
+            -> throw Exception  ||  null / 특정 상태를 나타내는 값으로 초기화 || ...
+
+
+    4) private data field should be changed only by method
+        = if client know reference of private data field
+            -> field can change freely without method of ADT = Encapsulation 위반
+            -> 예기치 못한 동작 / 보안 문제로 이어질 수 있음
+
+        * Encapsulation : 객체 내 세부 사항을 숨기고 내부 상태에 대한 접근을 제한하는 개념
+
+
+
+    5) Code Duplication Solution
+
+        i. Integrity checking   :   여러 method 에서 무결성 검사가 공통적으로 수행된다면 비공개 method 작성
+
+        ii. Finding certain entry   :   기본적인 항목 찾기 & 제거 수행하는 비공개 method 작성
+
+        iii. Remove item in certain location    :   Common Logic 추출하여 재사용 가능한 method 작성

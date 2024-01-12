@@ -1,0 +1,14 @@
+[Stack]
+
+    :   rm items in reverse order of insertion
+        = Last In First Out (LIFO)
+        -> insert & delete only at head of list
+
+
+    1) ADT
+
+    - push  = add
+    - pop   = remove, pull
+    - peek  = getTop
+    - isEmpty
+    - clear

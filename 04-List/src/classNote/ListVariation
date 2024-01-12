@@ -1,0 +1,48 @@
+* Responsibility
+
+    - void add (T x)
+
+        i. empty list
+
+        ii. insertion at front of list
+
+            : next of new node to start.next
+            : start.next points new node
+
+        iii. attach after last node
+
+        v. between two nodes
+
+    - remove (T x)
+    - remove (int index)
+    - get (int index)
+    - indexOf (int index)
+    - clear ()
+    - size ()
+
+
+
+1) Sorted List (ascending)
+
+
+2) Singly Linked List
+
+
+3) Doubly Linked List
+
+    - node = data + previous point + next point
+    // T data;
+    // Node prev;
+    // Node next;
+
+    - 1st & last node are immediately accessible
+
+    - Advantage
+
+        i. allow traversal of nodes in both direction
+        ii. Deque can be implemented easily
+
+
+
+4) Circular Linked List     :   Last node points 1st node (not null)
+    * can be singly / double linked list
